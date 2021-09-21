@@ -33,24 +33,33 @@ function App() {
         <div className="underline"></div>
       </div>
       <div className="jobs-center">
+        <div classNames="button-container">
         {/*btn Container */}
+          {jobs.map((item, index) => {
+            return (
+            <button key={item.id} onClick={() => setValue(index)}
+            className={`job-btn ${index === value && 'active-btn'}`}s>
+            {item.company}
+            </button> );
+        })};
+        </div>
         {/* job info */}
         <article className="job-info">
           <h3>{title}</h3>
           <h4>{company}</h4>
           <p className="job-date">{dates}</p>
-          {duties.map((duty,index) => {
-            return(
+          {duties.map((duty, index) => {
+            return (
               <div className="job-desc">
                 <FaAngleDoubleRight className="job-icon" />
                 <p>{duty}</p>
               </div>
-            )
+            );
           })}
         </article>
       </div>
     </section>
-  )
+  );
 }
 
 export default App;
